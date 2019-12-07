@@ -27,4 +27,38 @@ def fatorial(num):
 
 
 '''retorna quantida de cada palavra da lista'''
+
+
 def contador(lista): return [len(x) for x in lista]
+
+
+def escreve(fileName, texto):
+    arq = open(fileName, 'w')
+    arq.write(texto)
+    arq.close()
+
+
+def atualiza(fileName, texto):
+    try:
+        arq = open(fileName, 'a')
+    except Exception:
+        print('Arquivo não existe')
+    else:
+        arq.write(texto)
+    finally:
+        arq.close()
+
+
+def ler(fileName):
+    try:
+        arq = open(fileName, 'r')
+    except Exception:
+        print('Arquivo não existe.')
+    else:
+        text = arq.read()
+        print(text)
+    finally:
+        try:
+            arq.close()
+        except Exception:
+            print('Arquivo não aberto')
